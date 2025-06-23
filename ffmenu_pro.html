@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>FF Menu - Hoàng Việt</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ffab00;
+    }
+
+    .login {
+      margin-bottom: 30px;
+    }
+
+    .login input {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    button {
+      background: #ff6f00;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.95em;
+      box-shadow: 0 0 10px #ffab00;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffe082;
+      cursor: pointer;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body onload="playSound()">
+  <h1>🔥 FF MENU PRO 🔥</h1>
+  <div class="login">
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button onclick="login()">Đăng nhập</button>
+  </div>
+
+  <div id="menu" class="menu" style="display:none;">
+    <button>Wall Hack</button>
+    <button>Aim Bot</button>
+    <button>Auto Headshot</button>
+    <button>Speed Run</button>
+    <button>Teleport</button>
+    <button>ESP Enemy</button>
+    <button>Fly Hack</button>
+    <button>Gold Generator</button>
+    <button>Unlock All Skins</button>
+    <button>No Recoil</button>
+    <button>Anti Ban</button>
+    <button>Reset</button>
+  </div>
+
+  <audio id="bgmusic" autoplay loop>
+    <source src="https://files.catbox.moe/90hsvx.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if(user === "admin" && pass === "1234") {
+        document.querySelector(".login").style.display = "none";
+        document.getElementById("menu").style.display = "grid";
+      } else {
+        alert("Sai thông tin đăng nhập!");
+      }
+    }
+
+    function playSound() {
+      var music = document.getElementById("bgmusic");
+      music.volume = 0.3;
+      music.play().catch(() => {});
+    }
+  </script>
+</body>
+</html>
