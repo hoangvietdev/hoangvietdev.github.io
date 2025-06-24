@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HVDev Menu 🔥</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    canvas#fireCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .container {
+      position: relative;
+      padding: 50px;
+    }
+    h1 {
+      color: #ff9900;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #ff6600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+    .menu {
+      display: none;
+      margin-top: 30px;
+    }
+    .menu button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      background: #222;
+      color: white;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fireCanvas"></canvas>
+
+<div class="container">
+  <h1>🔥 HVDEV MENU 🔥</h1>
+  <input type="text" id="keyInput" placeholder="Nhập key để mở khóa">
+  <br>
+  <button onclick="checkKey()">🔓 MỞ KHÓA</button>
+
+  <div class="menu" id="menuSection">
+    <h2>🎮 MENU CHÍNH</h2>
+    <button>Auto Headshot</button>
+    <button>Wall Hack</button>
+    <button>ESP Player</button>
+    <button>Aim Lock</button>
+    <button>Fake Ping</button>
+    <button>Speed Run</button>
+    <button>Night Mode</button>
+    <button>Anti Ban</button>
+    <button>Fake IP</button>
+    <button>Ghim Tâm</button>
+    <button>Xoá Lag</button>
+  </div>
+</div>
+
+<!-- Âm thanh -->
+<audio id="successSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+<audio id="failSound" src="https://www.soundjay.com/misc/sounds/fail-buzzer-01.mp3"></audio>
+
+<!-- 🔐 JavaScript đã bị mã hóa -->
+<script>
+eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\b'+e(c)+'\b','g'),k[c])}}return p}('const validKeys=["X1a9Bv","Ho4nGv7","FfA88x","kYt99Q","Hvd2024","KeyFree1","VipKey2","ProT3am","a1B2c3","ZxCv99"];function checkKey(){const input=document.getElementById("keyInput").value.trim();if(validKeys.includes(input)){document.getElementById("menuSection").style.display="block";document.getElementById("successSound").play();alert("✅ Mở khóa thành công!")}else{document.getElementById("failSound").play();alert("❌ Sai key!")}}',[],0,''));
+</script>
+
+<!-- 🔥 Hiệu ứng nền lửa -->
+<script>
+const canvas=document.getElementById("fireCanvas");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+function createParticle(){return{x:Math.random()*canvas.width,y:canvas.height+Math.random()*100,speed:Math.random()*3+1,radius:Math.random()*3+2,opacity:Math.random()*0.5+0.5}}
+for(let i=0;i<200;i++){particles.push(createParticle())}
+function drawFire(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let p of particles){ctx.beginPath();ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);ctx.fillStyle=`rgba(255,${Math.floor(Math.random()*150)},0,${p.opacity})`;ctx.fill();p.y-=p.speed;if(p.y<0){Object.assign(p,createParticle())}}requestAnimationFrame(drawFire)}
+drawFire();
+</script>
+
+</body>
+</html>
